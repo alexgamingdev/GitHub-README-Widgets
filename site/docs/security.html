@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Security and privacy · GitHub README Widgets</title>
+    <link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <header><div class="wrap"><a href="../index.html">GitHub README Widgets</a><nav aria-label="Documentation"><a href="index.html">Docs home</a><a href="installation.html">Installation</a><a href="widgets.html">Widget reference</a><a href="security.html">Security &amp; privacy</a><a href="troubleshooting.html">Troubleshooting</a></nav></div></header>
+    <main class="wrap">
+      <h1>Security and privacy</h1>
+      <p>Review browser permission prompts and only run code or make requests to endpoints you trust. Widgets are executable content, not static documentation.</p>
+      <h2>Browser permissions</h2>
+      <p>The extension runs its content script on <code>https://github.com/*</code> and requests host access to HTTPS URLs so API widgets can make requests. Browser vendors may present this as broad website access. API requests are made only when a widget is explicitly run.</p>
+      <h2>API requests</h2>
+      <ul>
+        <li>Only HTTPS URLs without embedded username or password are accepted.</li>
+        <li>The extension sends no cookies, custom headers, or request body.</li>
+        <li>Redirects are rejected and requests time out after 15 seconds.</li>
+        <li>Responses are displayed in the widget and truncated at 100,000 characters.</li>
+      </ul>
+      <h2>HTML and JavaScript previews</h2>
+      <p>Previews run in an iframe with sandboxed scripts and a restrictive Content Security Policy. Network connections, external frames, forms, and external resources are blocked. The preview has no access to the GitHub page DOM or extension APIs. It starts only when you choose to run it.</p>
+      <h2>C# / .NET execution</h2>
+      <p>Marked C# code runs in a separate sandboxed iframe using the compiler and .NET WebAssembly runtime included in the extension package. It does not have network access; only the extension package's runtime resources are allowed.</p>
+      <h2>Discord webhook</h2>
+      <p>A webhook URL that you save is kept in local browser extension storage. The extension sends widget code and its latest result only when you explicitly choose the Discord share action. Treat webhook URLs as secrets; anyone who has one may be able to post to its channel.</p>
+      <h2>Reporting a vulnerability</h2>
+      <p>Do not post exploit details, private URLs, or credentials in a public issue. Follow the private reporting instructions in the repository's <a href="https://github.com/alexgamingdev/GitHub-README-Widgets/blob/main/SECURITY.md">security policy</a>.</p>
+    </main>
+    <footer><div class="wrap">GitHub README Widgets documentation</div></footer>
+  </body>
+</html>

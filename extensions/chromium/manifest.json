@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "default_locale": "en",
+  "name": "__MSG_extensionName__",
+  "version": "1.0.4",
+  "description": "__MSG_extensionDescription__",
+  "author": "@alexgamingdev",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png"
+    },
+    "default_title": "__MSG_extensionName__"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "vendor/blazor-wasm/*",
+        "vendor/blazor-wasm/_framework/*",
+        "brand-mark.svg"
+      ],
+      "matches": [
+        "https://github.com/*"
+      ]
+    }
+  ],
+  "options_page": "index.html"
+}

@@ -1,0 +1,5 @@
+* [Home](Home)
+* [Installation](Installation)
+* [Widget Reference](Widget-Reference)
+* [Security and Privacy](Security-and-Privacy)
+* [Troubleshooting](Troubleshooting)

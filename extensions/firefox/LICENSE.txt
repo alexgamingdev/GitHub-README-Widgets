@@ -1,0 +1,11 @@
+Business Source License 1.1
+
+Parameters
+Licensor:           @alexgamingdev
+Licensed Work:      The software programs and files in this repository.
+Additional Use Grant: Non-commercial use by individual developers and open-source projects is permitted, provided that prominent attribution to the Licensor remains visible in both the source code and the user interface. Commercial use, cloud hosting, or integration into proprietary platforms is strictly prohibited.
+Change Date:        January 01, 2030
+Change License:     GNU Affero General Public License v3.0 (AGPL-3.0-only)
+
+Crucial Change License Notice:
+On the Change Date, this software converts to the AGPL-3.0. Under the terms of the AGPL-3.0, any entity that integrates this Licensed Work into a network-accessible service or platform (such as a cloud platform or website) MUST disclose and make publicly available the COMPLETE and entire source code of that entire platform or service under the AGPL-3.0, not just the source code of this specific function or modification. Furthermore, clear and prominent attribution to the original Licensor must be maintained in the user interface of the platform.

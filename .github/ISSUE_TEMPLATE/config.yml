@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and community support
+    url: https://github.com/alexgamingdev/GitHub-README-Widgets/discussions/categories/q-a
+    about: Ask usage questions in GitHub Discussions.
+  - name: Documentation
+    url: https://github.com/alexgamingdev/GitHub-README-Widgets/tree/main/site/docs
+    about: Read installation, widget, security, and troubleshooting guides.

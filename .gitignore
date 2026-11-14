@@ -1,0 +1,14 @@
+node_modules/
+dist/
+
+# Local archives and generated packages
+*.zip
+
+# Local editor and operating system files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# npm debug logs
+npm-debug.log*

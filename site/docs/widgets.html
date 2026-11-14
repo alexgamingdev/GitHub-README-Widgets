@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Widget reference · GitHub README Widgets</title>
+    <link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <header><div class="wrap"><a href="../index.html">GitHub README Widgets</a><nav aria-label="Documentation"><a href="index.html">Docs home</a><a href="installation.html">Installation</a><a href="widgets.html">Widget reference</a><a href="security.html">Security &amp; privacy</a><a href="troubleshooting.html">Troubleshooting</a></nav></div></header>
+    <main class="wrap">
+      <h1>Widget reference</h1>
+      <p>Widgets are detected from a supported fenced-code language or from an API request line. They appear only when the extension is active on a GitHub repository page.</p>
+      <h2>API request</h2>
+      <p>Use a supported HTTP method followed by an HTTPS URL on its own line. Methods: <code>GET</code>, <code>HEAD</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code>, and <code>OPTIONS</code>. The extension does not provide custom headers or a request body.</p>
+      <pre><code>```http
+GET https://api.github.com
+```</code></pre>
+      <h2>API status</h2>
+      <p>Use a JSON object with a required <code>url</code> and optional <code>method</code>, <code>label</code>, and <code>statusPath</code>. The default status path is <code>status</code>.</p>
+      <pre><code>```api-status
+{"url":"https://api.github.com","label":"GitHub API","statusPath":"status"}
+```</code></pre>
+      <p>Values such as <code>operational</code>, <code>ok</code>, and <code>up</code> are recognized as healthy; <code>down</code>, <code>error</code>, and <code>degraded</code> are recognized as unhealthy.</p>
+      <h2>API chart</h2>
+      <p>Provide equal-length <code>labels</code> and numeric <code>values</code> arrays. An optional <code>title</code> labels the chart. Add a <code>url</code> and optional <code>method</code> to reload data when the user runs the widget.</p>
+      <pre><code>```api-chart
+{"title":"Weekly signups","labels":["Mon","Tue","Wed"],"values":[12,18,15]}
+```</code></pre>
+      <h2>Markdown tabs</h2>
+      <p>Each level-two heading (<code>##</code>) starts a tab. Tab contents are rendered as text, not HTML.</p>
+      <pre><code>```api-tabs
+## JavaScript
+JavaScript example
+
+## TypeScript
+TypeScript example
+```</code></pre>
+      <h2>Live HTML preview</h2>
+      <p>Use an <code>html-live</code> fenced block, or include the <code>&lt;!-- github-live-preview --&gt;</code> marker in a code block. The preview loads only after an explicit user action.</p>
+      <pre><code>```html-live
+&lt;button id="hello"&gt;Click me&lt;/button&gt;
+&lt;script&gt;
+  document.querySelector("#hello").addEventListener("click", (event) =&gt; {
+    event.currentTarget.textContent = "Hello!";
+  });
+&lt;/script&gt;
+```</code></pre>
+      <h2>Code editor</h2>
+      <p>Use a <code>code-editor</code> fenced block for editable HTML or JavaScript. Changes run in the isolated preview only when the user chooses <strong>Run</strong>.</p>
+      <h2>C# / .NET</h2>
+      <p>Use a <code>csharp</code>, <code>cs</code>, <code>dotnet-run</code>, <code>csharp-run</code>, or <code>cs-run</code> block and put <code>// github-dotnet-run</code> on its first line to run it. Other C# blocks remain ordinary code. The bundled compiler and runtime are loaded locally from the extension package.</p>
+      <pre><code>```csharp
+// github-dotnet-run
+using System;
+
+Console.WriteLine("Hello from .NET WebAssembly");
+```</code></pre>
+      <h2>Limits</h2>
+      <ul>
+        <li>Live HTML, editor, and .NET code blocks are limited to 100,000 characters.</li>
+        <li>API response output is truncated at 100,000 characters.</li>
+        <li>API requests have a 15-second timeout.</li>
+        <li>API requests send no cookies, custom headers, or request body, and do not follow redirects.</li>
+      </ul>
+    </main>
+    <footer><div class="wrap">GitHub README Widgets documentation</div></footer>
+  </body>
+</html>

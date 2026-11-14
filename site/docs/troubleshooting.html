@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Troubleshooting · GitHub README Widgets</title>
+    <link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <header><div class="wrap"><a href="../index.html">GitHub README Widgets</a><nav aria-label="Documentation"><a href="index.html">Docs home</a><a href="installation.html">Installation</a><a href="widgets.html">Widget reference</a><a href="security.html">Security &amp; privacy</a><a href="troubleshooting.html">Troubleshooting</a></nav></div></header>
+    <main class="wrap">
+      <h1>Troubleshooting</h1>
+      <h2>No widget appears</h2>
+      <ul>
+        <li>Confirm the extension is enabled and was loaded from the expected <code>dist/chromium</code> or <code>dist/firefox</code> folder.</li>
+        <li>Reload the GitHub repository page after installing or reloading the extension.</li>
+        <li>Check that the code fence uses a supported language such as <code>api-status</code>, <code>api-chart</code>, <code>api-tabs</code>, <code>html-live</code>, or <code>code-editor</code>.</li>
+        <li>For API requests, put the HTTP method and HTTPS URL together on a line of their own.</li>
+        <li>Confirm the page is on <code>github.com</code>, not a third-party GitHub mirror.</li>
+      </ul>
+      <h2>An API request fails</h2>
+      <ul>
+        <li>Check that the URL is HTTPS and has no embedded credentials.</li>
+        <li>Check whether the endpoint is reachable without cookies or custom headers. The widget cannot supply either.</li>
+        <li>The endpoint must not redirect; the extension rejects redirects.</li>
+        <li>Check the endpoint's response and CORS behavior in the browser. Requests have a 15-second timeout.</li>
+        <li>Some APIs require authentication or a request body and cannot be called by this widget format.</li>
+      </ul>
+      <h2>JSON configuration is invalid</h2>
+      <p>Use valid JSON with double-quoted property names and string values. For charts, <code>labels</code> and numeric <code>values</code> must have the same number of entries.</p>
+      <h2>A live preview is blank or incomplete</h2>
+      <p>External scripts, images, fonts, frames, and network requests are blocked by design. Inline HTML, CSS, and JavaScript are supported. Run the preview explicitly after making changes.</p>
+      <h2>C# / .NET does not start</h2>
+      <ul>
+        <li>Make sure the code fence is a supported C# language and its first line is <code>// github-dotnet-run</code>.</li>
+        <li>Build the package again with <code>npm ci</code> and <code>npm run build</code> so the bundled runtime exists under <code>vendor/blazor-wasm/</code>.</li>
+        <li>Reload the unpacked extension and then reload the GitHub page.</li>
+      </ul>
+      <h2>Still stuck?</h2>
+      <p>Open a <a href="https://github.com/alexgamingdev/GitHub-README-Widgets/issues/new/choose">GitHub issue</a> with browser/version, steps to reproduce, and the expected and actual behavior. Do not include webhook URLs, access tokens, or private repository content.</p>
+    </main>
+    <footer><div class="wrap">GitHub README Widgets documentation</div></footer>
+  </body>
+</html>

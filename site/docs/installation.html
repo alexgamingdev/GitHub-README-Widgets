@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Installation · GitHub README Widgets</title>
+    <link rel="stylesheet" href="docs.css">
+  </head>
+  <body>
+    <header><div class="wrap"><a href="../index.html">GitHub README Widgets</a><nav aria-label="Documentation"><a href="index.html">Docs home</a><a href="installation.html">Installation</a><a href="widgets.html">Widget reference</a><a href="security.html">Security &amp; privacy</a><a href="troubleshooting.html">Troubleshooting</a></nav></div></header>
+    <main class="wrap">
+      <h1>Installation and build</h1>
+      <p>Build the extension locally to try changes or load an unpacked development package. A permanent Firefox release must be signed by Mozilla Add-ons.</p>
+      <h2>Requirements</h2>
+      <ul><li>Node.js 20 or later</li><li>npm</li></ul>
+      <h2>Build the packages</h2>
+      <pre><code>npm ci
+npm run build</code></pre>
+      <p>The build creates <code>dist/chromium</code> and <code>dist/firefox</code>. Make source changes in <code>extensions/chromium</code> or <code>extensions/firefox</code>; generated packages are not the source of truth.</p>
+      <h2>Chromium browsers</h2>
+      <ol>
+        <li>Open <code>chrome://extensions</code>, <code>edge://extensions</code>, or the browser's equivalent extension management page.</li>
+        <li>Enable <strong>Developer mode</strong>.</li>
+        <li>Choose <strong>Load unpacked</strong> and select the project's <code>dist/chromium</code> folder.</li>
+        <li>Open or reload a GitHub repository page with a supported widget block.</li>
+      </ol>
+      <h2>Firefox</h2>
+      <ol>
+        <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
+        <li>Choose <strong>Load Temporary Add-on…</strong>.</li>
+        <li>Select <code>dist/firefox/manifest.json</code>.</li>
+        <li>Open or reload a GitHub repository page with a supported widget block.</li>
+      </ol>
+      <p>Firefox removes temporary add-ons when the browser closes. For a permanent installation, submit and sign the extension through Mozilla Add-ons.</p>
+      <h2>Update after source changes</h2>
+      <p>Run <code>npm run build</code> again, then use the extension manager's reload action for the unpacked add-on. Reload the GitHub page to apply content-script changes.</p>
+    </main>
+    <footer><div class="wrap">GitHub README Widgets documentation</div></footer>
+  </body>
+</html>

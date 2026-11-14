@@ -1,0 +1,12 @@
+{
+  "name": "github-readme-widgets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A browser extension that adds interactive, sandboxed widgets to GitHub repository READMEs.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@live-codes/blazor-wasm": "0.1.1"
+  }
+}
